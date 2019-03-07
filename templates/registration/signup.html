@@ -13,7 +13,7 @@
         <div class="card-body">
             <form method="post" novalidate>
                 {% csrf_token %}
-                {% bootstrap4_form form %}
+                {% bootstrap_form form %}
                 {% buttons %}
                 <button type="submit" class="btn btn-primary btn-block">ユーザー登録</button>
                 {% endbuttons %}
@@ -24,10 +24,4 @@
         </div>
     </div>
 </div>
-<h2>ユーザー登録</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">ユーザー登録</button>
-</form>
 {% endblock  %}

@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 {% block title %} ホーム {% endblock %}
 {% block content %}
-<h2>ホーム</h2>
 {% if user.is_authenticated %}
-ようこそ{{ user.get_username }} さん
-<p><a href="{% url 'logout' %}">ログアウト</a></p>
-{% else %}
-<p><a href="{% url 'login' %}">ログイン</a></p>
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">ようこそ{{ user.get_username }} さん</h4>
+        </div>
+        <div class="card-footer text-muted text-center">
+            <a href="{% url 'logout' %}">ログアウト</a>
+            {% else %}
+            <a href="{% url 'login' %">ログイン</a>
+        </div>
+    </div>
+</div>
 {% endif %}
 {% endblock %}
