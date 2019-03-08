@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load bootstrap %}
+{% load bootstrap4 %}
 
 {% block title  %}ログイン{% endblock %}
 
@@ -12,8 +12,16 @@
         <form method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <button type="submit">ログイン</button>
+            {% buttons %}
+                <button type="submit" class="btn btn-primary btn-block">ログイン</button>
+            {% endbuttons %}
         </form>
     </div>
 </div>
 {% endblock %}
+
+<style>
+
+.card {
+    padding-top: 50px;
+}
