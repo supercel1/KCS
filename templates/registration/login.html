@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block title  %}ログイン{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>ログイン</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary btn-block">ログイン</button>
+            {% endbuttons %}
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+<style>
+
+.card {
+    padding-top: 50px;
+}
+</style>
