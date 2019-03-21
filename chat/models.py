@@ -3,6 +3,7 @@ from datetime import timezone
 
 class Room(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
+    label = models.CharField(max_length=100, blank=True, null=True)
     is_private = models.BooleanField(default=True)
     created_at = DatetimeField(default=timezone.now())
 
