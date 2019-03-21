@@ -5,7 +5,11 @@
 
 {% block content %}
 <div class="d-flex align-items-center">
-    ようこそ、KCSへ
+  <p>
+    <a class="button button-primary" href="{% url 'new_room' %}">
+      チャットルームを作ろう！
+    </a>
+  </p>
 </div>
 
 {% endblock  %}
