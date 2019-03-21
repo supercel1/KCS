@@ -1,11 +1,11 @@
 from django.db import models
-from datetime import timezone
+from django.utils import timezone
 
 class Room(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
     label = models.CharField(max_length=100, blank=True, null=True)
     is_private = models.BooleanField(default=True)
-    created_at = models.DateTimeField(default=timezone.now())
+    created_at = models.DateTimeField(default=timezone.now)
 
 class Message(models.Model):
     room = models.ForeignKey(Room, related_name='messages', on_delete=models.CASCADE)
