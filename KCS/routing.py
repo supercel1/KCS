@@ -1,4 +1,5 @@
-from channels.routing import ProtocolTypeRouter
+from channels.staticfiles import StaticFilesConsumer
+from .chat import consumers
 
 channel_routing = {
     'websocket.connect': consumers.ws_connect,
