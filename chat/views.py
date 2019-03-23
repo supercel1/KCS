@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .models  import Room
+
+def index(request):
+    return render(request, 'chat/index.html', {})
 
 def home(request):
     return render(request, "chat/chatroom.html")
@@ -13,3 +15,9 @@ def chat_room(request):
     }
 
     return render(request, "chat/chatroom.html", context)
+
+def room(request, room_name):
+    return render(request, 'chat/room.html', {
+        'room_name_json': mark_safe(json.dumps(room_name))
+    })
+    

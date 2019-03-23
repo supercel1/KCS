@@ -1,8 +1,11 @@
-from channels.staticfiles import StaticFilesConsumer
-from .chat import consumers
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+import chat.routing
 
-channel_routing = {
-    'websocket.connect': consumers.ws_connect,
-    'websocket.receive': consumers.ws_receive,
-    'websocket.disconnect': consumers.ws_disconnect,
-}
+application = ProtocolTypeRouter({
+    'websocket': AuthMiddlewareStack(
+        URLRouter(
+            chat.routing.websocket_urlpatterns
+        )
+    ),
+})

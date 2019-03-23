@@ -109,12 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Channel Layer
+
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
-        },
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
         "ROUTING": "KCS.routing.channel_routing",
     },
 }
@@ -142,4 +141,8 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home'
 
-LOGIN_REDIRECT_URL = '/users/login/'
+LOGOUT_REDIRECT_URL = '/users/login/'
+
+# Channels
+
+ASGI_APPLICATION = 'KCS.routing.application'
