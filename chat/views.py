@@ -4,7 +4,7 @@ def index(request):
     return render(request, 'chat/index.html', {})
 
 def home(request):
-    return render(request, "chat/chatroom.html")
+    return render(request, "chat/home.html")
 
 def chat_room(request):
     room, created = Room.objects.get_or_create(name=name)
