@@ -9,8 +9,9 @@
         </div>
         <div class="card-footer text-muted text-center">
             <a href="{% url 'logout' %}">ログアウト</a>
+            <a href="{% url 'chat:index' %}">チャットルームへ</a>
             {% else %}
-            <a href="{% url 'login' %">ログイン</a>
+            <a href="{% url 'login' %}">ログイン</a>
         </div>
     </div>
 </div>

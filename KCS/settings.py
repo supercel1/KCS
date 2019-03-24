@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -109,13 +110,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Channel Layer
+
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
         },
-        "ROUTING": "KCS.routing.channel_routing",
     },
 }
 
@@ -142,4 +144,8 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home'
 
-LOGIN_REDIRECT_URL = '/users/login/'
+LOGOUT_REDIRECT_URL = '/users/login/'
+
+# Channels
+
+ASGI_APPLICATION = 'KCS.routing.application'
